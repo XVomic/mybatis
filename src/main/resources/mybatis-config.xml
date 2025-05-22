@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<!--<configuration>-->
+<!--    &lt;!&ndash; 1. 属性配置：引入外部配置文件 &ndash;&gt;-->
+<!--    <properties resource="db.properties"/>-->
+
+<!--&lt;!&ndash;    &lt;!&ndash; 2. 类型别名：简化类名引用 &ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;    <typeAliases>&ndash;&gt;-->
+<!--&lt;!&ndash;        <typeAlias type="com.example.User" alias="User"/>&ndash;&gt;-->
+<!--&lt;!&ndash;    </typeAliases>&ndash;&gt;-->
+
+<!--&lt;!&ndash;    &lt;!&ndash; 3. 插件配置：如分页插件 &ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;    <plugins>&ndash;&gt;-->
+<!--&lt;!&ndash;        <plugin interceptor="com.github.pagehelper.PageInterceptor"/>&ndash;&gt;-->
+<!--&lt;!&ndash;    </plugins>&ndash;&gt;-->
+
+<!--    &lt;!&ndash; 4. 环境配置：数据库连接和事务管理 &ndash;&gt;-->
+<!--    <environments default="development">-->
+<!--        <environment id="development">-->
+<!--            <transactionManager type="JDBC"/>-->
+<!--            <dataSource type="POOLED">-->
+<!--                <property name="driver" value="${jdbc.driver}"/>-->
+<!--                <property name="url" value="${jdbc.url}"/>-->
+<!--                <property name="username" value="${jdbc.username}"/>-->
+<!--                <property name="password" value="${jdbc.password}"/>-->
+<!--            </dataSource>-->
+<!--        </environment>-->
+<!--    </environments>-->
+
+<!--    &lt;!&ndash; 5. 映射器配置：注册SQL映射文件 &ndash;&gt;-->
+<!--    <mappers>-->
+<!--        <mapper resource="mapper/UserMapper.xml"/>-->
+<!--        <mapper class="com.example.mapper.OrderMapper"/> &lt;!&ndash; 注解方式 &ndash;&gt;-->
+<!--    </mappers>-->
+<!--</configuration>-->
+<configuration>
+<!--    环境配置-->
+<!--    加载类路径下面的属性文件-->
+    <properties resource="db.properties"></properties>
+    <environments default="development">
+        <environment id="development">
+            <transactionManager type="JDBC"></transactionManager>
+<!--            避免硬编码-->
+            <dataSource type="POOLED">
+                <property name="driver" value="${mysql.driver}"/>
+                <property name="url" value="${mysql.url}"/>
+                <property name="username" value="${mysql.username}"/>
+                <property name="password" value="${mysql.password}"/>
+            </dataSource>
+        </environment>
+    </environments>
+
+    <mappers>
+        <mapper resource="mapper/UserMapper.xml"></mapper>
+    </mappers>
+</configuration>

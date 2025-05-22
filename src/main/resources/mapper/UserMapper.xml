@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!--一个mapper对应一个实体类相关的所有数据增删查改-->
+<mapper namespace="com.xxc.pojo.User">
+    <select id="findById" parameterType="int" resultType="com.xxc.pojo.User">
+        select * from users where uid = #{id}
+    </select>
+</mapper>
